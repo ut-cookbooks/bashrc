@@ -16,3 +16,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+include_recipe "git"
+
+bash "update_bashrc" do
+  user "root"
+  cwd "/etc/bash"
+  code %{source /etc/bash/bashrc && update_bashrc}
+  only_if %{test -d /etc/bash && test -f /etc/bash/bashrc}
+end
+
+bash "install_bashrc" do
+  user "root"
+  code %{bash < <( curl -L http://bit.ly/bashrc-install-system-wide )}
+  creates "/etc/bash/bashrc"
+end
+
