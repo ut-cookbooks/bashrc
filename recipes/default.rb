@@ -22,7 +22,7 @@ include_recipe "git"
 bash "update_bashrc" do
   user "root"
   cwd "/etc/bash"
-  code %{source /etc/bash/bashrc && update_bashrc}
+  code %{bash -i -c "source /etc/bash/bashrc && update_bashrc"}
   only_if %{test -d /etc/bash && test -f /etc/bash/bashrc}
 end
 
