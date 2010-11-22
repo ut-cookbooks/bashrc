@@ -19,6 +19,8 @@
 
 include_recipe "git"
 
+package "curl"
+
 bash "update_bashrc" do
   user "root"
   cwd "/etc/bash"
