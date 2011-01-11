@@ -24,7 +24,7 @@ package "curl"
 bash "update_bashrc" do
   user "root"
   cwd "/etc/bash"
-  code %{bash -i -c "source /etc/bash/bashrc && update_bashrc"}
+  code %{bash -i -c "source /etc/bash/bashrc && bashrc update"}
   only_if %{test -d /etc/bash && test -f /etc/bash/bashrc}
 end
 
