@@ -53,8 +53,8 @@ if platform?("ubuntu")
 
   # support for vagrant user if using vagrant
   file "/home/vagrant/.bash_login" do
-    owner   "root"
-    group   "root"
+    owner   "vagrant"
+    group   "vagrant"
     mode    "0644"
     action  :create
     only_if %{test -d /home/vagrant}
