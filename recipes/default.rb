@@ -33,7 +33,7 @@ end
 
 execute "install_bashrc" do
   user      "root"
-  command   %{bash -c "bash <( curl -L http://bit.ly/bashrc-install-system-wide )"}
+  command   %{bash -c "bash <( curl -L #{node['bashrc']['install_url']} )"}
   creates   "/etc/bash/bashrc"
 end
 
