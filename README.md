@@ -1,24 +1,23 @@
-= DESCRIPTION:
+# DESCRIPTION:
 
 Installs a bash profile from http://github.com/fnichol/bashrc. Currently only
 targetting Ubuntu platform due to using the git cookbook. It's not complicated
 and would work on other platforms, but that can come later.
 
-= REQUIREMENTS:
+# REQUIREMENTS:
 
-== Cookbooks:
+## Cookbooks:
 
-Opscode Cookbooks (http://github.com/opscode/cookbooks/tree/master) or the fork
-from (http://github.com/fnichol/chef-git/tree/master).
+Opscode Cookbooks (http://github.com/opscode/cookbooks/tree/master):
 
 * git
 
-= USAGE:
+# USAGE:
 
 This cookbook installs the bashrc if not present and pulls updates if it is
 installed on the system.
 
-= LICENSE and AUTHOR:
+# LICENSE and AUTHOR:
 
 Author:: Fletcher Nichol (<fnichol@nichol.ca>)
 
