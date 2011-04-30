@@ -21,11 +21,14 @@ include_recipe "git"
 
 package "curl"
 
-bash "update_bashrc" do
-  user    "root"
-  cwd     "/etc/bash"
-  code    %{bash -i -c "source /etc/bash/bashrc && bashrc update"}
-  only_if %{test -d /etc/bash && test -f /etc/bash/bashrc}
+execute "update_bashrc" do
+  user      "root"
+  cwd       "/etc/bash"
+  command   %{bash -i -c "source /etc/bash/bashrc && bashrc update"}
+  only_if do
+    node['bashrc']['update'] &&
+      ::File.directory?("/etc/bash") && File.exists?("/etc/bash/bashrc")
+  end
 end
 
 execute "install_bashrc" do
