@@ -1,0 +1,67 @@
+{
+  "version": "0.2.1",
+  "providing": {
+  },
+  "maintainer": "Fletcher Nichol",
+  "long_description": "# DESCRIPTION\n\nInstalls a bash profile from http://github.com/fnichol/bashrc. Currently only\ntargetting Ubuntu platform due to using the git cookbook. It's not complicated\nand would work on other platforms, but that can come later.\n\n# REQUIREMENTS\n\n## Supported Platforms\n\nThe following platforms are supported by this cookbook, meaning that the\nrecipes run on these platforms without error:\n\n* Ubuntu\n* SUSE\n\n## Cookbooks\n\nOpscode Cookbooks (http://github.com/opscode/cookbooks/tree/master):\n\n* git\n\n# ATTRIBUTES\n\n## `update`\n\nWhether or not to update *bashrc* on every Chef execution.\n\nThe default is `false`.\n\n## `install_url`\n\nThe URL containing the installer script.\n\nThe default is `http://bit.ly/bashrc-install-system-wide`.\n\n# USAGE\n\nThis cookbook installs the bashrc if not present and pulls updates if it is\ninstalled on the system.\n\n# LICENSE and AUTHOR:\n\nAuthor:: Fletcher Nichol (<fnichol@nichol.ca>)\n\nCopyright:: 2010, 2011, Fletcher Nichol\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+  "replacing": {
+  },
+  "platforms": {
+    "suse": [
+
+    ],
+    "ubuntu": [
+
+    ]
+  },
+  "license": "Apache 2.0",
+  "maintainer_email": "fnichol@nichol.ca",
+  "groupings": {
+  },
+  "recommendations": {
+  },
+  "attributes": {
+    "bashrc/update": {
+      "required": "optional",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "false",
+      "type": "string",
+      "recipes": [
+
+      ],
+      "description": "Whether or not to update *bashrc* on every Chef execution.",
+      "display_name": "Update bashrc on each Chef run?"
+    },
+    "bashrc/install_url": {
+      "required": "optional",
+      "calculated": false,
+      "choice": [
+
+      ],
+      "default": "http://bit.ly/bashrc-install-system-wide",
+      "type": "string",
+      "recipes": [
+
+      ],
+      "description": "The URL containing the installer script.",
+      "display_name": "URL for installer script"
+    }
+  },
+  "description": "Installs/Configures fnichol/bashrc",
+  "suggestions": {
+  },
+  "dependencies": {
+    "git": [
+
+    ]
+  },
+  "name": "bashrc",
+  "conflicting": {
+  },
+  "recipes": {
+    "bashrc": "Installs github.com/fnichol/bashrc bash profile"
+  }
+}
