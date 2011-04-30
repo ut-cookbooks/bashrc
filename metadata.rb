@@ -17,7 +17,7 @@ end
 attribute "bashrc/update",
   :display_name => "Update bashrc on each Chef run?",
   :description  => "Whether or not to update *bashrc* on every Chef execution.",
-  :default      => false
+  :default      => "false"
 
 attribute "bashrc/install_url",
   :display_name => "URL for installer script",
