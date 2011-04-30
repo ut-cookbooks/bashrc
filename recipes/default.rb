@@ -28,10 +28,10 @@ bash "update_bashrc" do
   only_if %{test -d /etc/bash && test -f /etc/bash/bashrc}
 end
 
-bash "install_bashrc" do
-  user "root"
-  code %{bash < <( curl -L http://bit.ly/bashrc-install-system-wide )}
-  creates "/etc/bash/bashrc"
+execute "install_bashrc" do
+  user      "root"
+  command   %{bash -c "bash <( curl -L http://bit.ly/bashrc-install-system-wide )"}
+  creates   "/etc/bash/bashrc"
 end
 
 if platform?("ubuntu") 
