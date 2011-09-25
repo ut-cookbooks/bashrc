@@ -20,7 +20,7 @@
 include_recipe "bashrc"
 
 Array(node['bashrc']['user_installs']).each do |bashrc_user|
-  user_dir      = "#{node['bashrc']['user_home_root']}/#{bashrc['user']}"
+  user_dir      = "#{node['bashrc']['user_home_root']}/#{bashrc_user['user']}"
   bash_dir      = "#{user_dir}/.bash"
   installer_url = bashrc_user['installer_url'] || node['bashrc']['user_installer_url']
   update        = if bashrc_user['update'].nil?
