@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: bashrc
-# Attributes:: default
+# Recipe:: default
 #
-# Copyright 2011, Fletcher Nichol
+# Copyright 2010, 2011, Fletcher Nichol
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,17 +17,6 @@
 # limitations under the License.
 #
 
-default['bashrc']['update']       = false
-default['bashrc']['user_update']  = false
+include_recipe "git"
 
-default['bashrc']['installer_url']  =
-  "https://raw.github.com/fnichol/bashrc/master/contrib/install-system-wide"
-default['bashrc']['user_installer_url']  =
-  "https://raw.github.com/fnichol/bashrc/master/contrib/install-local"
-
-case platform
-when "ubuntu", "debian", "suse"
-  node.set['bashrc']['user_home_root']  = "/home"
-when "mac_os_x"
-  node.set['bashrc']['user_home_root']  = "/Users"
-end
+package "curl"

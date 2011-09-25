@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: bashrc
-# Recipe:: default
+# Recipe:: system
 #
 # Copyright 2010, 2011, Fletcher Nichol
 #
@@ -17,18 +17,13 @@
 # limitations under the License.
 #
 
-include_recipe "git"
-
-package "curl"
+include_recipe "bashrc"
 
 execute "update_bashrc" do
   user      "root"
   cwd       "/etc/bash"
   command   %{bash -i -c "source /etc/bash/bashrc && bashrc update"}
-  only_if do
-    node['bashrc']['update'] &&
-      ::File.directory?("/etc/bash") && File.exists?("/etc/bash/bashrc")
-  end
+  only_if   { node['bashrc']['update'] && ::File.exists?("/etc/bash/bashrc") }
 end
 
 execute "install_bashrc" do
