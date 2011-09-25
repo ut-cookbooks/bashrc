@@ -32,7 +32,6 @@ Array(node['bashrc']['user_installs']).each do |bashrc_user|
   execute "update_bashrc" do
     user      bashrc_user['user']
     cwd       bash_dir
-    command   %{bash -i -c "source /etc/bash/bashrc && bashrc update"}
     command   <<-CMD
       bash -i -c "\
         bashrc_local_install=1 \
