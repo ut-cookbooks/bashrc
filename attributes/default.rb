@@ -18,4 +18,4 @@
 #
 
 default['bashrc']['update']       = false
-default['bashrc']['install_url']  = "http://bit.ly/bashrc-install-system-wide"
+default['bashrc']['install_url']  = "https://raw.github.com/fnichol/bashrc/master/contrib/install-system-wide"

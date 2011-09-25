@@ -5,7 +5,9 @@ description       "Manages fnichol's bashrc at https://github.com/fnichol/bashrc
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version           "0.2.1"
 
-recipe            "bashrc", "Installs github.com/fnichol/bashrc bash profile"
+recipe            "bashrc",         "Common installation prerequisites; not meant to be included explicitly. See bashrc::system and bashrc::user for more details."
+recipe            "bashrc::system", "Installs fnichol's bash profile system-wide (in /etc/bashrc)."
+recipe            "bashrc::user",   "Installs fnichol's bash profile for a list of users (selected from the node['bashrc']['user_installs'] hash)."
 
 supports "ubuntu"
 supports "suse"
