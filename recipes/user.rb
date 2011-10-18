@@ -34,9 +34,10 @@ Array(node['bashrc']['user_installs']).each do |bashrc_user|
     cwd       bash_dir
     command   <<-CMD
       bash -i -c "\
-        bashrc_local_install=1 \
-        bashrc_prefix="#{bash_dir}" \
-        source #{bash_dir}/bashrc && bashrc update \
+        export bashrc_local_install=1 && \
+        export bashrc_prefix="#{bash_dir}" && \
+        source #{bash_dir}/bashrc && \
+        bashrc update \
       "
     CMD
     only_if   { update && ::File.exists?("#{bash_dir}/bashrc") }
