@@ -1,9 +1,9 @@
 maintainer        "Fletcher Nichol"
 maintainer_email  "fnichol@nichol.ca"
 license           "Apache 2.0"
-description       "Manages fnichol's bashrc at https://github.com/fnichol/bashrc."
+description       "Installs a bash profile from http://github.com/fnichol/bashrc."
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           "0.2.1"
+version           "0.2.2"
 
 recipe            "bashrc",         "Common installation prerequisites; not meant to be included explicitly. See bashrc::system and bashrc::user for more details."
 recipe            "bashrc::system", "Installs fnichol's bash profile system-wide (in /etc/bashrc)."
