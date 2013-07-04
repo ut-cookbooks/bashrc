@@ -6,11 +6,11 @@ FoodCritic::Rake::LintTask.new do |t|
   t.options = { :fail_tags => ['any'] }
 end
 
-task :default => [:foodcritic]
-
 begin
-  require 'jamie/rake_tasks'
-  Jamie::RakeTasks.new
+  require 'kitchen/rake_tasks'
+  Kitchen::RakeTasks.new
 rescue LoadError
-  puts ">>>>> Jamie gem not loaded, omitting tasks" unless ENV['CI']
+  puts ">>>>> test-kitchen gem not loaded, omitting tasks" unless ENV['CI']
 end
+
+task :default => [:foodcritic]
