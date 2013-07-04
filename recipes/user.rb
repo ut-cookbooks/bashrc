@@ -29,7 +29,7 @@ Array(node['bashrc']['user_installs']).each do |bashrc_user|
                     bashrc_user['update']
                   end
 
-  execute "update_bashrc" do
+  execute "update_bashrc (#{bashrc_user['user']})" do
     user      bashrc_user['user']
     cwd       bash_dir
     command   <<-CMD
@@ -40,12 +40,14 @@ Array(node['bashrc']['user_installs']).each do |bashrc_user|
         bashrc update \
       "
     CMD
+    environment({ 'USER' => bashrc_user['user'],'HOME' => user_dir })
     only_if   { update && ::File.exists?("#{bash_dir}/bashrc") }
   end
 
-  execute "install_bashrc" do
+  execute "install_bashrc (#{bashrc_user['user']})" do # ~FC041
     user      bashrc_user['user']
     command   %{bash -c "bash <( curl -L #{installer_url} )"}
+    environment({ 'USER' => bashrc_user['user'],'HOME' => user_dir })
     creates   "#{bash_dir}/bashrc"
   end
 end
