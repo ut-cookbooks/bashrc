@@ -1,3 +1,10 @@
+## 0.3.2 / 2013-07-04
+
+### Improvements
+
+* Fix bashrc_update when invoked non-interactively. ([@fnichol][])
+
+
 ## 0.3.0 / 2013-07-04
 
 ### Bug fixes
