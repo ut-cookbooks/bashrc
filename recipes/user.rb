@@ -29,18 +29,16 @@ Array(node['bashrc']['user_installs']).each do |bashrc_user|
                     bashrc_user['update']
                   end
 
-  execute "update_bashrc (#{bashrc_user['user']})" do
+  bash "update_bashrc (#{bashrc_user['user']})" do
     user      bashrc_user['user']
     cwd       bash_dir
-    command   <<-CMD
-      bash -i -c "\
-        export bashrc_local_install=1 && \
-        export bashrc_prefix="#{bash_dir}" && \
-        source #{bash_dir}/bashrc && \
-        bashrc update \
-      "
-    CMD
-    environment({ 'USER' => bashrc_user['user'],'HOME' => user_dir })
+    code      %{shopt -s expand_aliases && source #{bash_dir}/bashrc && bashrc update}
+    environment({
+      'USER' => bashrc_user['user'],
+      'HOME' => user_dir,
+      'bashrc_local_install' => '1',
+      'bashrc_prefix' => bash_dir
+    })
     only_if   { update && ::File.exists?("#{bash_dir}/bashrc") }
   end
 

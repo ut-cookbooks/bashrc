@@ -19,10 +19,10 @@
 
 include_recipe "bashrc"
 
-execute "update_bashrc" do
+bash "update_bashrc" do
   user      "root"
   cwd       "/etc/bash"
-  command   %{bash -i -c "source /etc/bash/bashrc && bashrc update"}
+  code      %{shopt -s expand_aliases && source #{bash_dir}/bashrc && bashrc update}
   only_if   { node['bashrc']['update'] && ::File.exists?("/etc/bash/bashrc") }
 end
 
