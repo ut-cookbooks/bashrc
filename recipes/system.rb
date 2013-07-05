@@ -26,9 +26,9 @@ bash "update_bashrc" do
   only_if   { node['bashrc']['update'] && ::File.exists?("/etc/bash/bashrc") }
 end
 
-execute "install_bashrc" do # ~FC041
+bash "install_bashrc" do # ~FC041
   user      "root"
-  command   %{bash -c "bash <( curl -L #{node['bashrc']['install_url']} )"}
+  code      %{shopt -s expand_aliases && bash <( curl -L #{node['bashrc']['install_url']} )}
   creates   "/etc/bash/bashrc"
 end
 
