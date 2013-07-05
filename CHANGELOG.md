@@ -1,3 +1,10 @@
+## 0.3.4 / 2013-07-05
+
+### Bug fixes
+
+* Fix bashrc install when invoked non-interactively. ([@fnichol][])
+
+
 ## 0.3.2 / 2013-07-04
 
 ### Improvements
