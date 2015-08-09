@@ -112,7 +112,7 @@ Ideally create a topic branch for every seperate change you make.
 
 Author:: [Fletcher Nichol][fnichol] (<fnichol@nichol.ca>) [![endorse](http://api.coderwall.com/fnichol/endorsecount.png)](http://coderwall.com/fnichol)
 
-Contributors:: https://github.com/fnichol/chef-bashrc/contributors
+Contributors:: https://github.com/ut-cookbooks/bashrc/contributors
 
 Copyright:: 2010, 2011, Fletcher Nichol
 
