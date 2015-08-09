@@ -1,3 +1,11 @@
+## 2.0.4 / 2015-08-09
+
+### Improvements
+
+* Add ChefSpec matchers for `bashrc` resource. ([@fnichol][])
+* Add RuboCop checks back into default Rakefile task. ([@fnichol][])
+
+
 ## 2.0.2 / 2015-08-09
 
 ### Improvements
