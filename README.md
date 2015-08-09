@@ -36,7 +36,7 @@ As of version 2.0.0, this cookbook is a library-style or resource-only cookbook.
 
 ## Requirements
 
-* Chef 0.10.2 or higher
+* Chef 12 or higher
 
 ## Platform Support
 
