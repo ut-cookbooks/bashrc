@@ -30,6 +30,6 @@ RuboCop::RakeTask.new(:style) do |task|
 end
 
 desc "Run all quality tasks"
-task :quality => [:foodcritic]
+task :quality => [:foodcritic, :style]
 
 task :default => [:test, :quality]
