@@ -129,6 +129,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 [fnichol]:      https://github.com/fnichol
-[repo]:         https://github.com/ut-cookbook/bashrc
-[issues]:       https://github.com/ut-cookbook/bashrc/issues
-[example_cb]:   https://github.com/ut-cookbook/bashrc/tree/master/example
+[repo]:         https://github.com/ut-cookbooks/bashrc
+[issues]:       https://github.com/ut-cookbooks/bashrc/issues
+[example_cb]:   https://github.com/ut-cookbooks/bashrc/tree/master/example
