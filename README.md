@@ -114,7 +114,7 @@ Author:: [Fletcher Nichol][fnichol] (<fnichol@nichol.ca>) [![endorse](http://api
 
 Contributors:: https://github.com/ut-cookbooks/bashrc/contributors
 
-Copyright:: 2010, 2011, Fletcher Nichol
+Copyright:: 2010, 2011, 2015 Fletcher Nichol
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
