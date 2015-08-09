@@ -1,6 +1,6 @@
 # Fletcher Nichol's Bash Profile Chef Cookbook
 
-[![Cookbook Version](http://img.shields.io/cookbook/v/ut_base.svg)](https://supermarket.chef.io/cookbooks/bashrc)
+[![Cookbook Version](http://img.shields.io/cookbook/v/bashrc.svg)](https://supermarket.chef.io/cookbooks/bashrc)
 [![Build Status](https://travis-ci.org/ut-cookbooks/bashrc.svg?branch=master)](https://travis-ci.org/ut-cookbooks/bashrc)
 
 * Supermarket: https://supermarket.chef.io/cookbooks/bashrc
