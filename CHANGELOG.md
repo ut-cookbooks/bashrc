@@ -1,3 +1,8 @@
+## 2.0.0 / 2015-08-09
+
+Major, breaking release, see README.md for usage details.
+
+
 ## 0.3.4 / 2013-07-05
 
 ### Bug fixes
