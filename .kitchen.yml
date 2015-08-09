@@ -3,14 +3,20 @@ driver:
   name: vagrant
 
 platforms:
-- name: ubuntu-15.04
-- name: ubuntu-14.04
-- name: ubuntu-12.04
-- name: debian-8.1
-- name: centos-7.1
+  - name: ubuntu-15.04
+  - name: ubuntu-14.04
+  - name: ubuntu-12.04
+  - name: debian-8.1
+  - name: centos-7.1
+  # - name: macosx-10.9
+  #   driver:
+  #     box: bento/macosx-10.9 # private box
+  # - name: macosx-10.10
+  #   driver:
+  #     box: bento/macosx-10.10 # private box
 
 suites:
-- name: user
-  run_list: recipe[bashrc_example::user]
-- name: system
-  run_list: recipe[bashrc_example::system]
+  - name: user
+    run_list: recipe[bashrc_example::user]
+  - name: system
+    run_list: recipe[bashrc_example::system]
