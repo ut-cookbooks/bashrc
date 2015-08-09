@@ -1,0 +1,13 @@
+AllCops:
+  Exclude:
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+
+Style/FileName:
+  Exclude:
+    - Cheffile
+    - Berksfile
+
+Style/SingleSpaceBeforeFirstArg:
+  Exclude:
+    - '**/metadata.rb'

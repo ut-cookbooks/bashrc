@@ -3,6 +3,4 @@
 site "https://supermarket.chef.io/api/v1"
 
 cookbook "bashrc", :path => "."
-
-# for integration testing
-cookbook "user"
+cookbook "bashrc_example", :path => "./example"

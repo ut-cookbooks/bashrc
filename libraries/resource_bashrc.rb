@@ -1,8 +1,8 @@
 #
 # Cookbook Name:: bashrc
-# Attributes:: default
+# Resource:: bashrc
 #
-# Copyright 2011, Fletcher Nichol
+# Copyright 2015, Fletcher Nichol
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,17 +17,21 @@
 # limitations under the License.
 #
 
-default['bashrc']['update']       = false
-default['bashrc']['user_update']  = false
+require "chef/resource/lwrp_base"
 
-default['bashrc']['installer_url']  =
-  "https://raw.github.com/fnichol/bashrc/master/contrib/install-system-wide"
-default['bashrc']['user_installer_url']  =
-  "https://raw.github.com/fnichol/bashrc/master/contrib/install-local"
+class Chef
 
-case platform
-when "ubuntu", "debian", "suse"
-  node.set['bashrc']['user_home_root']  = "/home"
-when "mac_os_x"
-  node.set['bashrc']['user_home_root']  = "/Users"
+  class Resource
+
+    class Bashrc < Chef::Resource::LWRPBase
+
+      provides :bashrc
+
+      self.resource_name = :bashrc
+      actions :install
+      default_action :install
+
+      attribute :user, :kind_of => String, :name_attribute => true
+    end
+  end
 end

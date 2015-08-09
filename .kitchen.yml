@@ -1,35 +1,16 @@
 ---
-driver_plugin: vagrant
-driver_config:
-  require_chef_omnibus: true
+driver:
+  name: vagrant
 
 platforms:
+- name: ubuntu-15.04
+- name: ubuntu-14.04
 - name: ubuntu-12.04
-  driver_config:
-    box: opscode-ubuntu-12.04
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-ubuntu-12.04.box
-- name: ubuntu-10.04
-  driver_config:
-    box: opscode-ubuntu-10.04
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-ubuntu-10.04.box
-- name: centos-6.3
-  driver_config:
-    box: opscode-centos-6.3
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-centos-6.3.box
-- name: centos-5.8
-  driver_config:
-    box: opscode-centos-5.8
-    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-centos-5.8.box
+- name: debian-8.1
+- name: centos-7.1
 
 suites:
-- name: standard
-  run_list:
-  - recipe[user::data_bag]
-  - recipe[bashrc::user]
-  attributes:
-    users:
-    - jdoe
-    bashrc:
-      user_installs:
-      - user: jdoe
-        update: true
+- name: user
+  run_list: recipe[bashrc_example::user]
+- name: system
+  run_list: recipe[bashrc_example::system]

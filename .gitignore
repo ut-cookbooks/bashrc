@@ -1,5 +1,6 @@
 Gemfile.lock
 Cheffile.lock
+.librarian
 .vagrant
 .kitchen/
 .kitchen.local.yml

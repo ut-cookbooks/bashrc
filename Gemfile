@@ -8,7 +8,12 @@ gem "librarian-chef"
 gem "rake"
 
 # allow CI to override the version of Chef for matrix testing
-gem 'chef', (ENV['CHEF_VERSION'] || '>= 0.10.10')
+gem "chef", (ENV["CHEF_VERSION"] || ">= 0.10.10")
+
+group :development do
+  gem "guard-rspec"
+  gem "guard-rubocop"
+end
 
 group :integration do
   gem "kitchen-docker"

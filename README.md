@@ -4,28 +4,33 @@
 
 * Source Code: https://github.com/fnichol/chef-bashrc
 
-A Chef cookbook to install a bash profile from http://github.com/fnichol/bashrc.
+A Chef cookbook containing a resource to install a bash profile from http://github.com/fnichol/bashrc.
 
 ## Usage
 
-### bashrc Installed System-Wide
+Place a dependency on the bashrc cookbook in your cookbook's metadata.rb
 
-If you want to install *bashrc* across the entire system, then include
-`recipe[bashrc::system]` in your run\_list.
+```ruby
+depends "bashrc", "~> 2.0"
+```
 
-### bashrc Installed For A Specific User
+Then, to install systemwide, put the following in a recipe:
 
-If you want to install *bashrc* only for a specific user, then include
-`recipe[bashrc::user]` in your run\_list and add a hash to the
-`user_installs` attribute list. For example:
+```ruby
+bashrc "root"
+```
 
-    node['bashrc']['user_installs'] = [
-      { 'user'    => 'smithers',
-        'update'  => true
-      }
-    ]
+Or for a particular user:
 
-See below for more details.
+```ruby
+bashrc "jdoe"
+```
+
+For a more complete example, checkout the provided [example cookbook][example_cb].
+
+## Scope
+
+As of version 2.0.0, this cookbook is a library-style or resource-only cookbook. In other words, there are no recipes, attributes, etc. and you use the provded resource in your own cookbook. This helps keep dependencies and maintenance as low as possible.
 
 ## Requirements
 
@@ -35,75 +40,65 @@ See below for more details.
 
 This cookbook is tested on the following platforms with [Test Kitchen](http://kitchen.ci):
 
-* CentOS 5.8 64-bit
-* CentOS 6.3 64-bit
+* CentOS 7.1 64-bit
+* Debian 8.1 64-bit
 * Mac OS X 10.9
 * Mac OS X 10.10
-* Ubuntu 10.04 64-bit
 * Ubuntu 12.04 64-bit
+* Ubuntu 14.04 64-bit
+* Ubuntu 15.04 64-bit
 
 ## Cookbook Dependencies
 
-This cookbook depends on the following external cookbooks:
-
-* [git](https://supermarket.chef.io/cookbooks/git)
+This cookbook has **no** external cookbook dependencies.
 
 ## Recipes
 
-### default
-
-Installs the common package pre-requisites used by the *system* and *user*
-recipes.
-
-There is no reason to include this recipe.
-
-### system
-
-Installs the bashrc profile system-wide (that is, into `/etc/bash`). This
-recipe includes *default*.
-
-Use this recipe by itself if you want the bashrc profile available across all
-users on the system.
-
-### user
-
-Installs the bashrc profile for a list of users (selected from the
-`node['bashrc']['user_installs']` hash). This recipe includes *default*.
-
-Use this recipe by itself if you want the bashrc profile available only
-to specific users or if the user running Chef does not have root privileges.
+This cookbook has **no** recipes.
 
 ## Attributes
 
-### update
-
-Whether or not to update *bashrc* system-wide on every Chef execution.
-
-The default is `false`.
-
-### user\_update
-
-Whether or not to update *bashrc* for user installs by default on every
-Chef execution. Each user can override this value by setting an `update`
-attribute in their user hash.
-
-### installer\_url
-
-The URL containing the system-wide installer script.
-
-The default is
-`https://raw.github.com/fnichol/bashrc/master/contrib/install-system-wide`.
-
-### user\_installer\_url
-
-The URL containing the per-user installer script.
-
-The default is
-`https://raw.github.com/fnichol/bashrc/master/contrib/install-local`.
+This cookbook has **no** attributes.
 
 ## Resources and Providers
 
-There are **no** resources and providers.
+### bashrc
+
+The `bashrc` resource manages the installation of the bashrc profile for all users on the system when the **root** user is provided or can install it on a per-user basis.
+
+The system-wide installation puts the profile under `/etc/bash` and the per-user installation puts the profile under the user's `$HOME` directory in `.bash`.
+
+The `:install` action installs the profile, which is the default (and only) action.
+
+#### Example
+
+```ruby
+bashrc "system-wide installation" do
+  user "root"
+  action :install
+end
+
+# short form of above example
+bashrc "root"
+
+bashrc "install only for jdoe user" do
+  user "jdoe"
+  action :install
+end
+
+# short form of above example
+bashrc "jdoe"
+```
+
+Note that for per-user installations, the user must already exist with their home directory created and appropriate permissions assigned (i.e. the user must be able to write in their own home directory).
+
+#### Attributes
+
+* `user` - The user that the profile will be installed under. If `"root"` is provided, a system-wide installation will be performed, setting up under `/etc/bash`. Defaults to the resource name.
+
+#### Actions
+
+* `:install` - Downloads, extracts, and initializes the profile for the given user.
 
 ## Development
 
@@ -136,3 +131,4 @@ limitations under the License.
 [fnichol]:      https://github.com/fnichol
 [repo]:         https://github.com/fnichol/chef-bashrc
 [issues]:       https://github.com/fnichol/chef-bashrc/issues
+[example_cb]:   https://github.com/fnichol/chef-bashrc/tree/master/example
