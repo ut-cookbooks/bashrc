@@ -1,3 +1,10 @@
+## 2.0.2 / 2015-08-09
+
+### Improvements
+
+* Fix Supermarket version badge in README, better docs, no? ([@fnichol][])
+
+
 ## 2.0.0 / 2015-08-09
 
 Major, breaking release, see README.md for usage details.
