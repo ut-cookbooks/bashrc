@@ -1,8 +1,8 @@
 # Fletcher Nichol's Bash Profile Chef Cookbook
 
-[![Build Status](https://travis-ci.org/fnichol/chef-bashrc.svg?branch=master)](https://travis-ci.org/fnichol/chef-bashrc)
+[![Build Status](https://travis-ci.org/ut-cookbooks/bashrc.svg?branch=master)](https://travis-ci.org/ut-cookbooks/bashrc)
 
-* Source Code: https://github.com/fnichol/chef-bashrc
+* Source Code: https://github.com/ut-cookbooks/bashrc
 
 A Chef cookbook containing a resource to install a bash profile from http://github.com/fnichol/bashrc.
 
@@ -129,6 +129,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 [fnichol]:      https://github.com/fnichol
-[repo]:         https://github.com/fnichol/chef-bashrc
-[issues]:       https://github.com/fnichol/chef-bashrc/issues
-[example_cb]:   https://github.com/fnichol/chef-bashrc/tree/master/example
+[repo]:         https://github.com/ut-cookbook/bashrc
+[issues]:       https://github.com/ut-cookbook/bashrc/issues
+[example_cb]:   https://github.com/ut-cookbook/bashrc/tree/master/example
