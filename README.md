@@ -1,7 +1,9 @@
 # Fletcher Nichol's Bash Profile Chef Cookbook
 
+[![Cookbook Version](http://img.shields.io/cookbook/v/ut_base.svg)](https://supermarket.chef.io/cookbooks/bashrc)
 [![Build Status](https://travis-ci.org/ut-cookbooks/bashrc.svg?branch=master)](https://travis-ci.org/ut-cookbooks/bashrc)
 
+* Supermarket: https://supermarket.chef.io/cookbooks/bashrc
 * Source Code: https://github.com/ut-cookbooks/bashrc
 
 A Chef cookbook containing a resource to install a bash profile from http://github.com/fnichol/bashrc.
